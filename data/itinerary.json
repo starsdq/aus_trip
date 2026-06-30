@@ -1,0 +1,904 @@
+{
+  "title": "오스트리아 & 사운드 오브 뮤직 10일 여행",
+  "dateRange": "2027.09.03 (금) ~ 09.12 (일)",
+  "days": [
+    {
+      "dayNum": 1,
+      "label": "Day 1",
+      "date": "9/3 (금)",
+      "theme": "독일 입국 및 뮌헨 이동",
+      "events": [
+        {
+          "time": "11:20",
+          "timeEnd": "17:05",
+          "emoji": "✈️",
+          "title": "인천(ICN) 출발 (LOT 폴란드항공 LO98)",
+          "memo": "인천공항 제1여객터미널 탑승, 바르샤바(WAW) 경유",
+          "tags": ["비행", "12시간 45분 소요"],
+          "tip": "기내 엔터테인먼트 및 목베개, 편안한 슬리퍼를 챙기세요. 경유지인 바르샤바까지 든든하게 비행합니다.",
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "17:05",
+          "timeEnd": "19:40",
+          "emoji": "🔄",
+          "title": "바르샤바 쇼팽 공항(WAW) 환승",
+          "memo": "대기 시간 약 2시간 35분, 쉥겐 협정국 입국 심사 진행",
+          "tags": ["환승", "입국심사"],
+          "tip": "바르샤바 공항은 비교적 콤팩트하여 2시간 반의 대기 시간 동안 입국 심사를 마치고 게이트로 이동하기에 충분히 여유롭습니다.",
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "19:40",
+          "timeEnd": "21:15",
+          "emoji": "✈️",
+          "title": "바르샤바 출발 → 뮌헨(MUC) 도착 (LO375)",
+          "memo": "뮌헨 국제공항 터미널 2 도착, 수하물 수령",
+          "tags": ["비행", "1시간 35분 소요"],
+          "tip": "이미 바르샤바에서 입국 심사를 받았으므로 뮌헨 도착 후에는 짐만 찾고 바로 나갑니다.",
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "21:50",
+          "timeEnd": "22:40",
+          "emoji": "🚃",
+          "title": "뮌헨 공항 → 뮌헨 중앙역(München Hbf) 이동",
+          "memo": "S-Bahn(S1 또는 S8) 광역전철 탑승, 약 45분 소요",
+          "tags": ["이동", "전철"],
+          "tip": "공항 내 자동발매기에서 2인 그룹 일일권(Group Day Ticket, 전체구역)을 구매하면 훨씬 저렴하며 S-Bahn 및 뮌헨 시내 모든 교통수단을 이용할 수 있습니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/%EB%AE%8C%ED%9B%A4+%EA%B3%B5%ED%95%AD+(MUC)/%EB%AE%8C%ED%9B%A4+%EC%A5%91%EC%95%99%EC%97%AD/"
+        },
+        {
+          "time": "22:50",
+          "timeEnd": "",
+          "emoji": "🏨",
+          "title": "뮌헨 중앙역 인근 호텔 체크인",
+          "memo": "Aloft Munich 또는 Eden Hotel Wolff",
+          "tags": ["숙소", "뮌헨"],
+          "description": "뮌헨 중앙역 바로 앞에 위치하여 밤늦게 도착하는 여행객에게 최적의 접근성을 제공하는 숙소입니다. 렌터카 없이도 내일 아침 일찍 퓌센행 기차를 타기에 가장 편리하고 안전한 위치입니다. 모던한 객실과 편안한 침구로 시차 적응과 휴식에 좋습니다.",
+          "photo": false,
+          "mapUrl": "https://www.google.com/maps/place/Aloft+Munich/@48.139421,11.558143,17z",
+          "type": "hotel"
+        }
+      ]
+    },
+    {
+      "dayNum": 2,
+      "label": "Day 2",
+      "date": "9/4 (토)",
+      "theme": "노이슈반슈타인 성 & 잘츠부르크 이동 (열차 투어)",
+      "events": [
+        {
+          "time": "07:30",
+          "timeEnd": "08:15",
+          "emoji": "🍳",
+          "title": "호텔 조식",
+          "memo": "호텔 또는 역 내 베이커리에서 가벼운 식사",
+          "tags": ["식사"],
+          "tip": "중앙역 내부에 맛있는 독일식 브레첼과 샌드위치, 커피를 파는 빵집이 많습니다.",
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "08:40",
+          "timeEnd": "10:45",
+          "emoji": "🚃",
+          "title": "뮌헨 중앙역 → 퓌센역 이동",
+          "memo": "BRB(바이에른 지역열차) 탑승, 약 2시간 소요",
+          "tags": ["이동", "바이에른티켓"],
+          "tip": "토요일이므로 바이에른 티켓(Bayern-Ticket, 2인 €45 내외)을 끊으면 당일 퓌센 왕복 기차 및 퓌센 시내버스, 잘츠부르크행 기차까지 추가 비용 없이 무제한 탑승할 수 있어 압도적으로 경제적입니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/%EB%AE%8C%ED%9B%A4+%EC%A5%91%EC%95%99%EC%97%AD/F%C3%BCssen,+%EB%8F%85%EC%9D%BC/"
+        },
+        {
+          "time": "10:50",
+          "timeEnd": "11:10",
+          "emoji": "🚌",
+          "title": "퓌센역 → 호엔슈반가우(Hohenschwangau) 성 입구 이동",
+          "memo": "퓌센역 바로 앞 버스 승강장에서 73번 또는 78번 버스 탑승 (10분 소요)",
+          "tags": ["이동", "버스"],
+          "tip": "이 버스 요금 역시 바이에른 티켓에 포함되어 있어 기사에게 티켓만 보여주면 됩니다. 짐이 있다면 퓌센역 보관함이나 호엔슈반가우 인포메이션 센터에 유료로 보관할 수 있습니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/F%C3%BCssen+Bahnhof/Hohenschwangau/"
+        },
+        {
+          "time": "11:30",
+          "timeEnd": "14:30",
+          "emoji": "🏰",
+          "title": "노이슈반슈타인 성 (Neuschwanstein Castle) 관람",
+          "memo": "디즈니랜드 신데렐라 성의 모티브가 된 동화 속 성",
+          "tags": ["관광", "명소", "예약필수"],
+          "description": "바이에른 국왕 루트비히 2세가 알프스 언덕 위에 지은 백조의 성. 깊은 계곡 위 마리엔 다리(Marienbrücke)에서 바라보는 외관 뷰는 엽서 속에 나오는 최고의 사진 스팟입니다. 내부 투어는 한국어 오디오 가이드가 지원되며 엄격한 시간 예약제로 운영됩니다. 9월 성수기에는 최소 2달 전 온라인 사전 예약을 꼭 해두어야 합니다. 주차장에서 성 입구까지는 셔틀버스나 마차를 타거나 도보로 30분 정도 소요됩니다.",
+          "photo": true,
+          "photoFile": "fussen_castle.jpg",
+          "tip": "티켓에 적힌 내부 입장 시간을 칼같이 지켜야 하므로 주차 후 성 입구까지 이동 시간을 최소 40분 이상 넉넉히 잡으세요.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Neuschwanstein+Castle/@47.557574,10.749800,17z"
+        },
+        {
+          "time": "14:30",
+          "timeEnd": "15:30",
+          "emoji": "🍽️",
+          "title": "점심 식사 (호엔슈반가우 또는 퓌센)",
+          "memo": "성 관람 후 하산하여 식사",
+          "tags": ["식사", "독일식"],
+          "options": [
+            {
+              "label": "추천",
+              "name": "Alpenrose am See",
+              "description": "호엔슈반가우 호숫가에 위치하여 평화로운 뷰를 보며 슈니첼과 맥주를 즐기기 좋은 레스토랑.",
+              "mapUrl": "https://www.google.com/maps/place/Alpenrose+am+See/@47.557812,10.736112,17z"
+            },
+            {
+              "label": "대안 A",
+              "name": "Gasthof Krone (퓌센 시내)",
+              "description": "퓌센 구시가지로 버스를 타고 돌아와 식사할 경우, 중세 바이에른 분위기 속에서 슈바인스학세를 파는 전통 식당.",
+              "mapUrl": "https://www.google.com/maps/place/Gasthof+Krone/@47.568461,10.701142,17z"
+            }
+          ],
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "16:05",
+          "timeEnd": "19:40",
+          "emoji": "🚃",
+          "title": "퓌센역 출발 → 잘츠부르크 중앙역(Salzburg Hbf) 이동",
+          "memo": "뮌헨역 또는 붑호에(Buchloe)역 환승 열차 탑승 (약 3시간 30분 소요)",
+          "tags": ["이동", "기차", "바이에른티켓"],
+          "tip": "이 먼 거리도 놀랍게도 바이에른 티켓 한 장으로 모두 커버됩니다! 잘츠부르크 중앙역은 독일 국경 역으로 간주되어 바이에른 티켓을 사용할 수 있는 종점입니다. 환승은 1회만 하면 되어 매우 간단합니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/F%C3%BCssen/Salzburg+Hbf,+Salzburg,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "19:50",
+          "timeEnd": "",
+          "emoji": "🏨",
+          "title": "잘츠부르크 호텔 체크인",
+          "memo": "Hotel Schloss Leopoldskron 또는 IMLAUER HOTEL PITTER",
+          "tags": ["숙소", "잘츠부르크"],
+          "description": "호텔 슐로스 레오폴드스크론(Schloss Leopoldskron)은 영화 '사운드 오브 뮤직'에서 폰 트랩가 가족들이 호숫가 정원에서 배를 타다 뒤집어지는 장면의 배경이 된 실제 궁전입니다. 투숙객은 전용 정원과 화려한 베네치아 룸을 산책할 수 있어 사운드오브뮤직 덕후에게는 성지와 같은 로맨틱한 호텔입니다. (역에서 숙소까지는 우버/택시 약 10분 소요)",
+          "photo": true,
+          "photoFile": "salzburg_mirabell.jpg",
+          "mapUrl": "https://www.google.com/maps/place/Schloss+Leopoldskron/@47.791550,13.036640,17z",
+          "type": "hotel"
+        },
+        {
+          "time": "20:15",
+          "timeEnd": "21:30",
+          "emoji": "🏰",
+          "title": "호엔잘츠부르크 성채 (Festung Hohensalzburg) 야경",
+          "memo": "잘츠부르크 시내를 한눈에 굽어보는 중세 요새 외관 조망",
+          "tags": ["관광", "야경"],
+          "tip": "역 근처나 올드타운 강변을 걸으며 호엔잘츠부르크 성채에 비치는 조명과 잘차흐 강에 비치는 야경을 즐기며 낭만적인 밤을 맞이합니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Hohensalzburg+Fortress/@47.794931,13.047530,17z"
+        }
+      ]
+    },
+    {
+      "dayNum": 3,
+      "label": "Day 3",
+      "date": "9/5 (일)",
+      "theme": "잘츠부르크 시내 (사운드 오브 뮤직 도보 투어)",
+      "events": [
+        {
+          "time": "09:00",
+          "timeEnd": "09:30",
+          "emoji": "🚗",
+          "title": "잘츠부르크 로컬 렌터카 인수",
+          "memo": "잘츠부르크 시내 또는 중앙역 지점에서 차량 픽업",
+          "tags": ["렌터카", "인수"],
+          "tip": "오늘 오후 교외 및 내일 살츠카머구트 호수 지역 탐방을 위해 차량을 3일간 렌트합니다. 오스트리아 전용 고속도로 통행권(Vignette)이 부착되어 있는지 확인하세요.",
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "09:40",
+          "timeEnd": "11:30",
+          "emoji": "🌸",
+          "title": "미라벨 정원 (Mirabellgarten) 투어",
+          "memo": "영화 속 '도레미 송'을 부르던 핵심 배경지",
+          "tags": ["사운드오브뮤직", "정원", "무료"],
+          "description": "마리아와 아이들이 춤추며 뛰어놀던 그리스 신화 석상들, 동그란 페가수스 분수(Pegasus Fountain), 그리고 노래의 마지막 하이라이트에서 밟고 뛰어넘던 계단이 그대로 남아 있습니다. 아침 이른 시간에 방문해야 투어 그룹이 적어 쾌적하게 사진을 찍을 수 있으며, 정원 너머로 보이는 요새의 경관도 아름답습니다.",
+          "photo": true,
+          "photoFile": "salzburg_mirabell.jpg",
+          "tip": "계단 위에서 폰 트랩 아이들처럼 대형을 맞춰 점프하는 인증샷을 꼭 남겨 보세요!",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Mirabell+Palace/@47.805441,13.042125,17z"
+        },
+        {
+          "time": "11:45",
+          "timeEnd": "12:30",
+          "emoji": "⛪",
+          "title": "논베르크 수녀원 (Stift Nonnberg)",
+          "memo": "실제 주인공 마리아 수녀가 수련을 받던 가톨릭 성당",
+          "tags": ["사운드오브뮤직", "성지"],
+          "description": "실제 폰 트랩 대령과 마리아가 결혼했던 장소이자, 영화 속에서 수녀님들이 마리아에 대해 고민하며 'Maria'를 부르던 곳입니다. 구시가 언덕 위에 자리 잡고 있어 조용하고 경건한 분위기가 가득합니다. 잘츠부르크 카드가 있어도 도보로만 접근이 가능합니다.",
+          "photo": false,
+          "tip": "성당 내부는 매우 엄숙한 기도 처소이므로 속삭여 대화하고 사진 촬영 제한 구역을 잘 확인해 주세요.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Nonnberg+Abbey/@47.796338,13.049443,17z"
+        },
+        {
+          "time": "12:45",
+          "timeEnd": "14:15",
+          "emoji": "🍴",
+          "title": "점심 식사 (잘츠부르크 올드타운)",
+          "memo": "레지덴츠 광장 근처 식당",
+          "tags": ["식사", "오스트리아식"],
+          "options": [
+            {
+              "label": "추천",
+              "name": "Stiftskeller St. Peter",
+              "description": "서기 803년에 오픈해 1200년이 넘는 역사를 지닌 유럽 최고(최고)의 레스토랑. 분위기가 압도적이며 오스트리아 정통 육류 요리가 훌륭합니다. 예약 필수.",
+              "mapUrl": "https://www.google.com/maps/place/St.+Peter+Stiftskulinarium/@47.796912,13.044812,17z"
+            },
+            {
+              "label": "대안 A",
+              "name": "Zwettler's Stiftskeller",
+              "description": "구시가지 골목에 숨겨진 현지 분위기 가득한 선술집 레스토랑. 슈니첼과 차가운 맥주를 편하게 즐길 수 있습니다.",
+              "mapUrl": "https://www.google.com/maps/place/Zwettler's+Stiftskeller/@47.798124,13.045612,17z"
+            }
+          ],
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "14:30",
+          "timeEnd": "15:30",
+          "emoji": "⛲",
+          "title": "레지덴츠 광장 & 잘츠부르크 대성당",
+          "memo": "마리아가 수녀원을 떠나 대령 집으로 갈 때 자신감을 노래하던 장소",
+          "tags": ["사운드오브뮤직", "광장"],
+          "description": "영화 중 마리아가 'I Have Confidence' 노래를 부르며 씩씩하게 걸어가다 물을 탁 튕기던 거대한 조각 분수가 서 있는 곳입니다. 바로 옆에는 모차르트가 세례를 받은 잘츠부르크 대성당이 위치해 있어 웅장한 내부 파이프 오르간과 돔을 함께 감상하기에 최적입니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Residenzplatz/@47.798512,13.046124,17z"
+        },
+        {
+          "time": "15:45",
+          "timeEnd": "17:00",
+          "emoji": "🪦",
+          "title": "성 베드로 묘지 (Petersfriedhof)",
+          "memo": "영화 후반부 나치 독일군을 피해 숨었던 묘지의 모델",
+          "tags": ["사운드오브뮤직", "묘지", "무료"],
+          "description": "실제 영화는 할리우드 세트장에서 촬영되었으나, 잘츠부르크의 이 유서 깊은 성 베드로 묘지를 모델로 삼아 완벽히 재현했습니다. 철제 격자문과 꽃으로 꾸며진 무덤, 절벽 뒤 카타콤(지하 예배당)이 신비로우면서도 엄숙한 정취를 자아냅니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/St.+Peter's+Cemetery/@47.796781,13.044912,17z"
+        },
+        {
+          "time": "17:30",
+          "timeEnd": "19:00",
+          "emoji": "🛋️",
+          "title": "호텔 휴식 및 재정비",
+          "memo": "오후 도보 투어 후 가벼운 샤워 및 휴식",
+          "tags": ["휴식"],
+          "photo": false,
+          "type": "rest"
+        },
+        {
+          "time": "19:30",
+          "timeEnd": "",
+          "emoji": "🍻",
+          "title": "저녁 식사 및 맥주",
+          "memo": "잘츠부르크의 정통 수도원 양조장",
+          "tags": ["식사", "맥주", "수도원"],
+          "description": "Augustiner Bräu Kloster Mülln: 잘츠부르크의 전통적인 수도원 양조장으로 석조 머그잔에 담긴 생맥주를 수제 숯불 소시지, 족발 등과 함께 야외 정원에서 즐기는 명소입니다. 활기차고 서민적인 바이에른/오스트리아 문화를 즐기기 좋습니다.",
+          "photo": false,
+          "mapUrl": "https://www.google.com/maps/place/Augustiner+Br%C3%A4u+Kloster+M%C3%BClln/@47.805124,13.033612,17z",
+          "type": "food"
+        }
+      ]
+    },
+    {
+      "dayNum": 4,
+      "label": "Day 4",
+      "date": "9/6 (월)",
+      "theme": "사운드 오브 뮤직 교외 촬영지 & 살츠카머구트",
+      "events": [
+        {
+          "time": "08:30",
+          "timeEnd": "",
+          "emoji": "🚗",
+          "title": "잘츠부르크 교외 출발",
+          "memo": "남서쪽 헬브룬 궁전 방향 드라이브",
+          "tags": ["이동", "렌터카"],
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "08:50",
+          "timeEnd": "10:20",
+          "emoji": "🏡",
+          "title": "헬브룬 궁전 (Schloss Hellbrunn)",
+          "memo": "관람차와 16 Going on 17의 '유리 가제보'",
+          "tags": ["사운드오브뮤직", "궁전"],
+          "description": "큰 사랑을 받은 로맨틱 송 'Sixteen Going on Seventeen'을 부르던 하얀 유리 온실(Gazebo)이 정원에 그대로 이전 복원되어 있습니다. 또한 헬브룬 궁전은 가이드가 물총을 쏘아 기분 좋은 장난을 치는 '트릭 분수(Trick Fountains)' 정원으로 유명하며 잘츠부르크 카드로 입장 가능합니다.",
+          "photo": false,
+          "tip": "가제보는 잠겨 있어 내부에 들어갈 수 없지만 유리창 밖에서 음악을 들으며 포즈를 취하고 외관 사진을 찍기에 최적입니다.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Schloss+Hellbrunn/@47.761912,13.061214,17z"
+        },
+        {
+          "time": "10:30",
+          "timeEnd": "11:15",
+          "emoji": "🏰",
+          "title": "레오폴드스크론 궁전 (Schloss Leopoldskron)",
+          "memo": "폰 트랩 대령 저택의 호수 배경 촬영지",
+          "tags": ["사운드오브뮤직", "궁전", "뷰포인트"],
+          "description": "호수 건너편에 비치는 새하얀 로코코식 궁전 외관과 조각상은 마리아와 아이들이 대령을 만나러 갈 때 타고 가던 호수 경치 그대로입니다. 현재는 호텔 및 학술 연구 공간으로 운영 중이라 내부는 투숙객만 가능하며, 일반인은 호수 산책로 건너편에서 최고의 외관 인증샷을 찍을 수 있습니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Schloss+Leopoldskron/@47.791550,13.036640,17z"
+        },
+        {
+          "time": "11:15",
+          "timeEnd": "12:00",
+          "emoji": "🚗",
+          "title": "레오폴드스크론 → 베르펜(Werfen) 이동",
+          "memo": "남쪽 아우토반 이용, 약 40km (35분 소요)",
+          "tags": ["이동", "렌터카"],
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/Schloss+Leopoldskron/Werfen,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "12:00",
+          "timeEnd": "14:00",
+          "emoji": "🏔️",
+          "title": "베르펜 사운드 오브 뮤직 트레일 & 피크닉 초원",
+          "memo": "도레미 송을 부르며 소풍을 즐기던 실제 알프스 초원",
+          "tags": ["사운드오브뮤직", "트레킹", "명소"],
+          "description": "베르펜 마을의 언덕 꼭대기 기슭(Gschwandtanger Meadow)은 영화 속 마리아와 아이들이 알프스 잔디밭에 둘러앉아 도레미 송의 기초를 배우고 샌드위치를 먹던 아름다운 피크닉 장소입니다. 트레일 입구에서 완만한 오르막을 약 20분 걸어 올라가면 거대한 호엔베르펜 성채(Burg Hohenwerfen)가 산맥 사이에 우뚝 솟은 장관이 눈앞에 펼쳐집니다. 영화 속 장면과 싱크로율이 100% 일치합니다.",
+          "photo": true,
+          "photoFile": "hallstatt_lake.jpg",
+          "tip": "편안한 운동화와 마실 물을 준비하시고 피크닉 매트를 챙겨가 잔디에 누워 바람을 느껴보세요.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Sound+of+Music+Trail/@47.476412,13.189412,17z"
+        },
+        {
+          "time": "14:00",
+          "timeEnd": "14:45",
+          "emoji": "🚗",
+          "title": "베르펜 → 몬제(Mondsee) 이동",
+          "memo": "동쪽 고속도로 이용, 약 60km (45분 소요)",
+          "tags": ["이동", "렌터카"],
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/Werfen,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/Mondsee,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "14:45",
+          "timeEnd": "16:00",
+          "emoji": "⛪",
+          "title": "몬제 성 미카엘 성당 (Mondsee Basilica)",
+          "memo": "마리아와 폰 트랩 대령의 웅장한 결혼식 장소",
+          "tags": ["사운드오브뮤직", "성당"],
+          "description": "영화 중후반부, 아이들이 화려한 예복을 입고 행진하며 마리아와 폰 트랩 대령이 결혼 선서를 나누던 성당 내부입니다. 웅장한 핑크빛 로코코 양식의 파사드가 매우 인상적이며, 성당 앞 몬제 마을 광장은 파스텔톤 건물이 줄지어 있어 에스프레소에 아인슈페너 커피 한잔을 마시기 좋습니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Basilika+St.+Michael/@47.856912,13.351214,17z"
+        },
+        {
+          "time": "16:00",
+          "timeEnd": "16:30",
+          "emoji": "🚗",
+          "title": "몬제 → 장크트길겐(St. Gilgen) 이동",
+          "memo": "볼프강 호숫가 도로 드라이브, 15km (20분 소요)",
+          "tags": ["이동", "렌터카"],
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/Mondsee,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/St.+Gilgen,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "16:45",
+          "timeEnd": "",
+          "emoji": "🏨",
+          "title": "장크트길겐 호텔 체크인 및 휴식",
+          "memo": "Hotel Gasthof zur Post 또는 Scalaria St. Wolfgang",
+          "tags": ["숙소", "장크트길겐"],
+          "description": "장크트길겐은 영화의 오프닝 비행 씬에서 아래로 펼쳐지던 푸른 볼프강 호수(Wolfgangsee)와 산봉우리가 감싸 안은 환상적인 경치의 마을입니다. 모차르트 어머니의 생가가 있는 유서 깊은 곳이며 호숫가를 산책하고 테라스에서 커피를 마시기에 천국과도 같은 풍경을 자랑합니다.",
+          "photo": true,
+          "photoFile": "hallstatt_lake.jpg",
+          "mapUrl": "https://www.google.com/maps/place/Hotel+Gasthof+zur+Post/@47.766912,13.365112,17z",
+          "type": "hotel"
+        }
+      ]
+    },
+    {
+      "dayNum": 5,
+      "label": "Day 5",
+      "date": "9/7 (화)",
+      "theme": "할슈타트 & 비엔나 이동",
+      "events": [
+        {
+          "time": "08:30",
+          "timeEnd": "09:30",
+          "emoji": "🚗",
+          "title": "할슈타트(Hallstatt)로 이동",
+          "memo": "남쪽 국도 산맥 드라이브, 약 40km (45분 소요)",
+          "tags": ["이동", "렌터카"],
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/St.+Gilgen,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/Hallstatt,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "09:30",
+          "timeEnd": "12:30",
+          "emoji": "🏔️",
+          "title": "할슈타트 호수 마을 산책 & 전망대",
+          "memo": "세계 유산으로 등재된 그림 같은 알프스 호수 마을",
+          "tags": ["관광", "명소", "세계유산"],
+          "description": "가파른 산맥 사이에 다닥다닥 붙은 나무 집들과 고요한 호수, 고풍스러운 뾰족탑 성당이 어우러져 전 세계에서 가장 사진이 예쁘게 나오는 최고의 명소입니다. 마을 북쪽의 클래식 엽서 뷰포인트에서 사진을 찍은 뒤, 푸니쿨라를 타고 할슈타트 스카이워크(Skywalk World Heritage View)로 올라가 350m 상공에서 호수를 조망하는 코스입니다.",
+          "photo": true,
+          "photoFile": "hallstatt_lake.jpg",
+          "tip": "단체 관광객이 도착하는 오전 11시 전인 9시 반~10시 사이에 방문해야 줄을 서지 않고 쾌적하게 뷰포인트 사진을 촬영할 수 있습니다.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Classic+Village+Viewpoint,+Hallstatt/@47.564512,13.649812,17z"
+        },
+        {
+          "time": "12:30",
+          "timeEnd": "13:30",
+          "emoji": "🍽️",
+          "title": "점심 식사 (할슈타트 호숫가)",
+          "memo": "호수를 바라보며 즐기는 생선구이 점심",
+          "tags": ["식사", "경치맛집"],
+          "options": [
+            {
+              "label": "추천",
+              "name": "Brauhaus Lobis",
+              "description": "할슈타트 호수에서 갓 잡은 송어 구이(Steckerlfisch)와 로컬 라거 맥주를 멋진 테라스에서 즐길 수 있습니다.",
+              "mapUrl": "https://www.google.com/maps/place/Brauhaus+Lobis/@47.561214,13.648112,17z"
+            },
+            {
+              "label": "대안 A",
+              "name": "Rudolfsturm",
+              "description": "스카이워크 바로 옆 성벽 요새 위에 위치한 전망 레스토랑. 압도적인 호수 절경과 함께 디저트와 샌드위치를 팝니다.",
+              "mapUrl": "https://www.google.com/maps/place/Rudolfsturm/@47.563112,13.643612,17z"
+            }
+          ],
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "13:30",
+          "timeEnd": "15:00",
+          "emoji": "🚗",
+          "title": "할슈타트 → 잘츠부르크 복귀 및 렌터카 반납",
+          "memo": "75km 이동 (약 1시간 15분 소요), 렌터카 사무소 반납",
+          "tags": ["이동", "렌터카반납"],
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/Hallstatt,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/Salzburg+Hbf,+Salzburg,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "15:12",
+          "timeEnd": "17:40",
+          "emoji": "🚃",
+          "title": "잘츠부르크 → 비엔나(Wien) 기차 이동",
+          "memo": "ÖBB Railjet 고속열차 이용, 2시간 28분 소요",
+          "tags": ["이동", "고속열차"],
+          "tip": "Railjet 열차는 오스트리아 철도의 최고급 기차로, 좌석이 넓고 와이파이와 스낵 카가 완벽하게 준비되어 있습니다. 2등석 조기예매 시 1인 약 €19.90입니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/Salzburg+Hbf,+Salzburg,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/Wien+Hauptbahnhof,+Am+Hauptbahnhof,+Vienna,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/"
+        },
+        {
+          "time": "18:00",
+          "timeEnd": "",
+          "emoji": "🏨",
+          "title": "비엔나 호텔 체크인",
+          "memo": "Hotel Sans Souci Vienna 또는 Grand Ferdinand Vienna",
+          "tags": ["숙소", "비엔나"],
+          "description": "그랜드 퍼디난드 비엔나(Grand Ferdinand Vienna)는 링 슈트라세 대로변에 자리한 웅장하고 아름다운 디자인 부티크 호텔입니다. 루프탑 수영장과 정원이 훌륭하며, 비엔나 국립 오페라 극장, 미술사 박물관까지 모두 도보 10분 내로 닿을 수 있어 관광 편의성이 탁월합니다.",
+          "photo": true,
+          "photoFile": "vienna_opera.jpg",
+          "mapUrl": "https://www.google.com/maps/place/Grand+Ferdinand+Vienna/@48.203001,16.375500,17z",
+          "type": "hotel"
+        },
+        {
+          "time": "18:45",
+          "timeEnd": "20:30",
+          "emoji": "🕍",
+          "title": "슈테판 대성당 야경 산책",
+          "memo": "비엔나의 랜드마크 고딕 양식 성당",
+          "tags": ["관광", "야경"],
+          "tip": "대성당을 둘러싼 게른트너 거리(Kärntner Straße)와 그라벤(Graben) 거리는 아름다운 전등 조명이 켜져 낭만적인 밤 산책을 즐기기에 완벽한 장소입니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/St.+Stephen's+Cathedral/@48.208493,16.373118,17z"
+        }
+      ]
+    },
+    {
+      "dayNum": 6,
+      "label": "Day 6",
+      "date": "9/8 (수)",
+      "theme": "비엔나 임페리얼 투어",
+      "events": [
+        {
+          "time": "08:30",
+          "timeEnd": "11:30",
+          "emoji": "🏰",
+          "title": "쇤브룬 궁전 (Schloß Schönbrunn) 투어",
+          "memo": "합스부르크 왕가의 찬란한 여름 별궁",
+          "tags": ["관광", "명소", "예약필수"],
+          "description": "마리 앙투아네트가 어린 시절을 보내고 모차르트가 어릴 적 신동 연주를 하던 노란색 로코코 스타일의 황실 궁전. 궁전 뒤편으로 끝없이 펼쳐지는 기하학적 프랑스식 정원과 언덕 위 글로리에테(Gloriette) 정자 뷰는 사운드 오브 뮤직에서 대령과 마리아가 아이들의 교육 방식을 두고 갈등하던 아름다운 무대이기도 합니다. '그랜드 투어' 티켓 사전 예약 필수.",
+          "photo": true,
+          "photoFile": "vienna_opera.jpg",
+          "tip": "궁전 뒤 정원 언덕 꼭대기 글로리에테 카페에서 궁전 전체와 비엔나 시내 전경을 보며 멜랑주(비엔나식 라떼) 커피를 꼭 한 잔 즐겨보세요.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Sch%C3%B6nbrunn+Palace/@48.185812,16.312812,17z"
+        },
+        {
+          "time": "12:00",
+          "timeEnd": "13:30",
+          "emoji": "🍽️",
+          "title": "점심 식사 (비엔나 슈니첼)",
+          "memo": "오스트리아 대표 요리 슈니첼 맛집",
+          "tags": ["식사", "슈니첼"],
+          "options": [
+            {
+              "label": "추천",
+              "name": "Figlmüller Bäckerstraße",
+              "description": "접시 밖으로 삐져나올 정도로 크고 얇게 바삭하게 튀겨낸 송아지 고기 슈니첼의 원조 명소. 최소 1개월 전 홈페이지 예약 필수.",
+              "mapUrl": "https://www.google.com/maps/place/Figlm%C3%BCller/@48.209124,16.374412,17z"
+            },
+            {
+              "label": "대안 A",
+              "name": "Plachutta Wollzeile",
+              "description": "오스트리아 전통 수육 요리인 타펠슈피츠(Tafelspitz) 명가. 놋그릇에 끓인 국물과 야들야들한 소고기를 소스와 곁들여 먹습니다.",
+              "mapUrl": "https://www.google.com/maps/place/Plachutta/@48.207812,16.378112,17z"
+            }
+          ],
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "14:00",
+          "timeEnd": "16:30",
+          "emoji": "🎨",
+          "title": "벨베데레 궁전 (Schloss Belvedere) 미술관",
+          "memo": "구스타프 클림트의 명작 'The Kiss' 소장 궁전",
+          "tags": ["관광", "미술관", "명작"],
+          "description": "오이겐 왕자의 여름 별장이었던 바로크 양식의 궁전으로, 상궁 미술관에 전 세계인의 사랑을 받는 구스타프 클림트의 황금빛 대작인 '키스(The Kiss)'와 '유디트', 에곤 실레의 명작들이 전시되어 있습니다. 전설적인 화가들의 실물 붓 터치와 색채의 아름다움을 마주하게 됩니다.",
+          "photo": false,
+          "tip": "클림트의 '키스' 앞은 항상 인파가 붐비니 입장하자마자 2층 대표 전시실로 곧장 올라가 먼저 조용히 관람하시는 것을 추천합니다.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Belvedere+Palace/@48.191547,16.380912,17z"
+        },
+        {
+          "time": "16:45",
+          "timeEnd": "18:00",
+          "emoji": "☕",
+          "title": "카페 자허 (Café Sacher) 티타임",
+          "memo": "원조 초콜릿 케이크인 '자허토르테'를 맛보는 고급스러운 비엔나식 카페",
+          "tags": ["카페", "디저트"],
+          "description": "살구 잼을 넣어 묵직하게 구운 초콜릿 케이크 '오리지널 자허토르테'와 차가운 휩크림을 올려 달콤 쌉싸름하게 즐기는 아인슈페너 커피의 조합은 비엔나 여행의 필수 공식입니다. 19세기 황실 분위기를 낸 화려한 벨벳 인테리어와 은식기가 우아함을 더합니다.",
+          "photo": false,
+          "tip": "자허 카페는 대기줄이 매우 길기로 유명하므로 숙소 근처라면 아침 일찍 들르거나 공식 홈페이지에서 미리 예약 타임을 잡는 것이 좋습니다.",
+          "type": "food",
+          "mapUrl": "https://www.google.com/maps/place/Caf%C3%A9+Sacher+Wien/@48.203812,16.369412,17z"
+        },
+        {
+          "time": "20:00",
+          "timeEnd": "",
+          "emoji": "🛌",
+          "title": "호텔 휴식",
+          "memo": "내일 비엔나 예술 가득한 저녁 일정을 위한 편안한 밤 휴식",
+          "tags": ["휴식"],
+          "photo": false,
+          "type": "rest"
+        }
+      ]
+    },
+    {
+      "dayNum": 7,
+      "label": "Day 7",
+      "date": "9/9 (목)",
+      "theme": "비엔나 예술과 음악",
+      "events": [
+        {
+          "time": "09:30",
+          "timeEnd": "11:30",
+          "emoji": "🏰",
+          "title": "호프부르크 왕궁 & 시시 박물관",
+          "memo": "합스부르크 왕가의 600년 중심 궁전",
+          "tags": ["관광", "궁전"],
+          "description": "현재 오스트리아 대통령 집무실로도 쓰이는 비엔나의 본궁. 눈부시게 아름답고 비극적이었던 엘리자베트 황후(닉네임 시시)의 사생활과 은식기 컬렉션을 볼 수 있는 박물관이 잘 정비되어 있습니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Hofburg/@48.206512,16.364412,17z"
+        },
+        {
+          "time": "11:45",
+          "timeEnd": "12:45",
+          "emoji": "📚",
+          "title": "오스트리아 국립도서관 프룬크잘 (Prunksaal)",
+          "memo": "해리포터 도서관의 실사판이자 세계에서 가장 아름다운 도서관",
+          "tags": ["관광", "도서관", "바록스타일"],
+          "description": "18세기 황실 서고로 지어진 웅장한 바로크 홀. 바닥부터 돔 천장 끝까지 들어찬 고서적 가구들과 황금색 조각상, 세련된 대리석 기둥이 판타지 영화 속에 들어와 있는 듯한 엄숙하고 압도적인 화려함을 선사합니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/State+Hall+of+the+Austrian+National+Library/@48.206124,16.366812,17z"
+        },
+        {
+          "time": "13:00",
+          "timeEnd": "14:30",
+          "emoji": "🍽️",
+          "title": "점심 식사 (비엔나 갈비탕 타펠슈피츠)",
+          "memo": "프란츠 요제프 황제가 매일 즐겨 먹었다는 소고기 전골 요리",
+          "tags": ["식사", "전통식"],
+          "options": [
+            {
+              "label": "추천",
+              "name": "Plachutta Wollzeile",
+              "description": "타펠슈피츠 최고의 대가. 소고기를 우려낸 맑은 육수를 스프처럼 먼저 마신 후 부드럽게 익은 고기를 감자, 애플 홀스래디시 소스와 함께 즐깁니다. 예약 권장.",
+              "mapUrl": "https://www.google.com/maps/place/Plachutta/@48.207812,16.378112,17z"
+            },
+            {
+              "label": "대안 A",
+              "name": "Lugeck",
+              "description": "클래식 오스트리아 요리를 모던한 선술집 인테리어에서 즐길 수 있는 비엔나 인기 펍 레스토랑.",
+              "mapUrl": "https://www.google.com/maps/place/Lugeck/@48.209612,16.373812,17z"
+            }
+          ],
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "15:00",
+          "timeEnd": "17:30",
+          "emoji": "🖼️",
+          "title": "비엔나 미술사 박물관 (Kunsthistorisches Museum)",
+          "memo": "합스부르크 왕가의 무한한 컬렉션이 집결된 세계 3대 미술관",
+          "tags": ["관광", "미술관"],
+          "description": "피터 브뤼헬의 대표작 '바벨탑', 라파엘로의 '초원의 성모', 루벤스와 벨라스케스의 황실 초상화 등 인류 미술사의 교과서적인 명작이 모여 있습니다. 전시장 벽면 전체를 덮은 황금색 바로크식 인테리어와 중앙 천장 돔의 구스타프 클림트 벽화 역시 또 하나의 웅장한 볼거리입니다.",
+          "photo": false,
+          "tip": "전시장 중앙에 위치한 돔 카페(Café im Museum)는 도서관 못지않게 화려한 대리석 돔 아래에서 차를 마실 수 있으니 꼭 들러 사진을 남겨 보세요.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Kunsthistorisches+Museum+Wien/@48.203712,16.361812,17z"
+        },
+        {
+          "time": "19:00",
+          "timeEnd": "22:00",
+          "emoji": "🎼",
+          "title": "비엔나 국립 오페라 극장 또는 무지크페어라인 콘서트 관람",
+          "memo": "음악의 수도 비엔나에서 즐기는 클래식의 진수",
+          "tags": ["음악", "공연", "예약필수"],
+          "description": "전 세계 클래식 음악의 성지. 신년 음악회로 전 세계에 생중계되는 '무지크페어라인 황금홀(Musikverein Goldener Saal)'에서 모차르트나 브람스 클래식 연주회를 감상하거나, 세계적인 테너와 소프라노가 서는 국립 오페라 극장에서 오페라 한 편을 관람합니다. 부부의 Central Europe 여행에서 가장 낭만적인 밤을 선물해 줍니다.",
+          "photo": true,
+          "photoFile": "vienna_opera.jpg",
+          "tip": "복장은 세미 정장 또는 단정한 비즈니스 캐주얼 수준이 기본 매너입니다. 운동화나 슬리퍼, 반바지는 피하는 것이 좋습니다.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Vienna+State+Opera/@48.203112,16.369112,17z"
+        }
+      ]
+    },
+    {
+      "dayNum": 8,
+      "label": "Day 8",
+      "date": "9/10 (금)",
+      "theme": "비엔나 → 프라하 이동",
+      "events": [
+        {
+          "time": "09:00",
+          "timeEnd": "13:12",
+          "emoji": "🚂",
+          "title": "비엔나 출발 → 프라하(Prague) 도착",
+          "memo": "ÖBB Railjet 직행 열차 이용 (약 4시간 10분 소요)",
+          "tags": ["이동", "열차"],
+          "tip": "기차 창밖으로 체코와 오스트리아 국경의 평화로운 목가적 풍경이 계속해서 이어집니다. 조기 예매 시 약 €14~20에 쾌적하게 예약할 수 있습니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/dir/Wien+Hauptbahnhof,+Vienna,+%EC%98%A4%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%95%84/Prague+Main+Station,+Wilsonova,+Prague+2,+%EC%B2%B4%EC%BD%94/"
+        },
+        {
+          "time": "13:30",
+          "timeEnd": "14:30",
+          "emoji": "🏨",
+          "title": "프라하 호텔 체크인",
+          "memo": "BoHo Prague Hotel 또는 Grand Hotel Bohemia",
+          "tags": ["숙소", "프라하"],
+          "description": "그랜드 호텔 보헤미아(Grand Hotel Bohemia)는 구시가 화약탑에서 단 100m 떨어진 거리에 위치해 구시가 광장과 골목 탐방에 가장 이상적입니다. 1920년대 신예술 스타일의 웅장한 네오 바로크식 볼룸과 모던한 객실이 대비되며 창밖으로 붉은 지붕 지붕이 내려다보이는 고급 호텔입니다.",
+          "photo": true,
+          "photoFile": "prague_castle.jpg",
+          "mapUrl": "https://www.google.com/maps/place/Grand+Hotel+Bohemia/@50.087512,14.427612,17z",
+          "type": "hotel"
+        },
+        {
+          "time": "15:00",
+          "timeEnd": "18:00",
+          "emoji": "🏰",
+          "title": "프라하 구시가 광장 & 화약탑 산책",
+          "memo": "중세의 붉은 지붕과 거리가 고스란히 보존된 도시",
+          "tags": ["관광", "광장"],
+          "description": "틴 성당과 구시청사 천문시계가 마주 보는 프라하 구시가 광장은 한 걸음 걸을 때마다 마법 같은 복고 분위기가 펼쳐집니다. 시계탑 아래에서 매 시 정각 종소리와 인형극을 구경하고, 뜨르들로(Trdlo: 체코 전통 굴뚝빵)에 아이스크림을 얹어 나누어 먹으며 산책을 해봅니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Old+Town+Square/@50.087224,14.420831,17z"
+        },
+        {
+          "time": "18:30",
+          "timeEnd": "20:30",
+          "emoji": "🌉",
+          "title": "카를교 (Charles Bridge) 노을 산책 및 저녁 식사",
+          "memo": "세계에서 가장 로맨틱한 다리 위 노을 야경",
+          "tags": ["관광", "노을", "인증샷"],
+          "description": "블타바 강을 가로지르는 보헤미아 고딕식 석조 다리. 다리 위에 늘어선 30개의 성인 조각상과 프라하 성 뒤로 저물어가는 붉은 저녁 노을은 사랑스러운 프라하 여행의 로맨틱함을 최고조로 끌어올려 줍니다. 얀 네포무크 조각상 밑의 놋쇠 판을 손으로 대고 평생의 소원을 빌어보세요.",
+          "photo": false,
+          "tip": "성 요한 네포무크 상 아래 강아지와 사람 부조를 동시에 만지며 사랑하는 사람과 건강하고 행복하기를 소원으로 빌어 보세요.",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Charles+Bridge/@50.086447,14.411440,17z"
+        }
+      ]
+    },
+    {
+      "dayNum": 9,
+      "label": "Day 9",
+      "date": "9/11 (토)",
+      "theme": "프라하의 낭만",
+      "events": [
+        {
+          "time": "09:00",
+          "timeEnd": "12:30",
+          "emoji": "🏰",
+          "title": "프라하 성 (Pražský hrad) 투어",
+          "memo": "유럽에서 가장 거대한 고성 단지",
+          "tags": ["관광", "명소"],
+          "description": "뾰족한 검은 탑과 웅장한 스테인드글라스(알폰스 무하 작품)로 수놓아진 '성 비투스 대성당'을 관람하고, 동화 같은 중세 파스텔톤 초소 건물이 남아 있는 '황금 소로(Golden Lane)'를 걷습니다. 성 밖 정원 난간에서는 주황색 붉은 지붕으로 가득 찬 프라하 시내를 감상할 수 있습니다.",
+          "photo": true,
+          "photoFile": "prague_castle.jpg",
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Prague+Castle/@50.090224,14.400512,17z"
+        },
+        {
+          "time": "12:45",
+          "timeEnd": "14:15",
+          "emoji": "🍖",
+          "title": "점심 식사 (체코 꼴레뇨 & 맥주)",
+          "memo": "맥주의 나라 체코에서 즐기는 정통 양조장 식사",
+          "tags": ["식사", "체코식", "맥주"],
+          "options": [
+            {
+              "label": "추천",
+              "name": "Lokál Dlouhááá",
+              "description": "프라하 현지인들이 신선한 필스너 우르켈 무여과 생맥주와 체코 전통 음식을 먹기 위해 줄을 서는 가성비 넘치는 전통 펍 레스토랑. 예약 권장.",
+              "mapUrl": "https://www.google.com/maps/place/Lok%C3%A1l+Dlouh%C3%A1%C3%A1%C3%A1/@50.090112,14.426112,17z"
+            },
+            {
+              "label": "대안 A",
+              "name": "Klášterní Pivovar Strahov",
+              "description": "프라하 성 근처 스트라호프 수도원의 자가 양조장 레스토랑. 쌉쌀한 수제 앰버 라거 맥주와 부드러운 돼지갈비 립 요리가 일품입니다.",
+              "mapUrl": "https://www.google.com/maps/place/Strahov+Monastic+Brewery/@50.086112,14.388112,17z"
+            }
+          ],
+          "photo": false,
+          "type": "food"
+        },
+        {
+          "time": "14:30",
+          "timeEnd": "17:00",
+          "emoji": "🛍️",
+          "title": "하벨 시장 & 구시가 쇼핑",
+          "memo": "체코 전통 목각 인형과 마리오네트, 천연 화장품 쇼핑",
+          "tags": ["쇼핑", "선물"],
+          "description": "하벨 시장(Havelské Tržiště)에서 귀여운 수제 기념품과 딸기, 납작복숭아 같은 제철 과일을 맛보며 구경합니다. 체코의 맥주 효모 화장품인 마누팩투라(Manufaktura) 매장에서 승무원 핸드크림과 립밤 같은 귀국 선물을 구입해 봅니다.",
+          "photo": false,
+          "type": "sightseeing",
+          "mapUrl": "https://www.google.com/maps/place/Havel's+Market/@50.085312,14.421512,17z"
+        },
+        {
+          "time": "19:00",
+          "timeEnd": "",
+          "emoji": "🍺",
+          "title": "저녁 식사 (재즈 펍 또는 체코 전통 선술집)",
+          "memo": "마지막 밤을 장식할 재즈 바 또는 펍",
+          "tags": ["식사", "재즈바"],
+          "description": "Jazz Republic 또는 Reduta Jazz Club: 전 세계 음악 애호가들이 찾는 프라하의 역사적인 재즈 바에서 부드러운 재즈 선율을 라이브로 감상하며 체코 대표 흑맥주인 코젤 다크(Kozel Dark)를 가볍게 한 잔 즐기며 여행을 마무리합니다.",
+          "photo": false,
+          "mapUrl": "https://www.google.com/maps/place/Jazz+Republic/@50.083812,14.420112,17z",
+          "type": "food"
+        }
+      ]
+    },
+    {
+      "dayNum": 10,
+      "label": "Day 10",
+      "date": "9/12 (일)",
+      "theme": "프라하 아웃 → 귀국",
+      "events": [
+        {
+          "time": "09:00",
+          "timeEnd": "10:30",
+          "emoji": "☕",
+          "title": "프라하 낭만 카페 브런치",
+          "memo": "유럽 유서 깊은 예술가들의 아지트 카페",
+          "tags": ["식사", "카페"],
+          "description": "Café Louvre: 1902년에 문을 열어 알베르트 아인슈타인과 프란츠 카프카가 자주 토론을 나누던 프라하의 헤리티지 가득한 카페입니다. 부드러운 비엔나식 멜랑주 커피와 카이저슈마렌(오스트리아식 잘게 찢은 팬케이크) 브런치를 즐깁니다.",
+          "photo": false,
+          "type": "food",
+          "mapUrl": "https://www.google.com/maps/place/Caf%C3%A9+Louvre/@50.081912,14.418812,17z"
+        },
+        {
+          "time": "11:00",
+          "timeEnd": "12:30",
+          "emoji": "🧳",
+          "title": "호텔 체크아웃 및 공항 이동 준비",
+          "memo": "짐 정리 후 택시(우버/볼트)를 불러 공항으로 출발",
+          "tags": ["이동"],
+          "tip": "프라하 시내에서 바츨라프 하벨 공항까지는 볼트(Bolt)나 우버(Uber)를 부르면 약 30분 소요되며 약 ₩25,000~30,000으로 가장 쾌적합니다.",
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "13:00",
+          "timeEnd": "14:30",
+          "emoji": "🛄",
+          "title": "프라하 바츨라프 하벨 국제공항(PRG) 도착 및 수속",
+          "memo": "출발 3시간 전 도착하여 위탁 수하물 수속 및 택스 리펀(Tax Refund) 진행",
+          "tags": ["공항", "수속"],
+          "tip": "구입한 물품 중 택스 리펀을 받으려면 보안 검색 전 세관 카운터(Customs)에서 영수증에 스탬프를 먼저 받아 리펀 부스에 제출해야 합니다.",
+          "photo": false,
+          "type": "transport",
+          "mapUrl": "https://www.google.com/maps/place/V%C3%A1clav+Havel+Airport+Prague/@50.101783,14.263183,17z"
+        },
+        {
+          "time": "17:25",
+          "timeEnd": "18:40",
+          "emoji": "✈️",
+          "title": "프라하 출발 → 바르샤바(WAW) 도착 (LO526)",
+          "memo": "LOT 폴란드항공 이용, 바르샤바 쇼팽 공항 환승",
+          "tags": ["비행", "1시간 15분 소요"],
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "18:40",
+          "timeEnd": "21:25",
+          "emoji": "🔄",
+          "title": "바르샤바 공항(WAW) 환승",
+          "memo": "대기 시간 약 2시간 45분, 출국 심사(비쉥겐 구역으로 이동) 진행",
+          "tags": ["환승", "출국심사"],
+          "tip": "바르샤바 공항의 출국 구역 면세점에는 폴란드 전통 초콜릿인 Vedel, 보드카인 Zubrowka 등을 저렴하게 판매하고 있어 환승 대기 중 가볍게 둘러보기 좋습니다.",
+          "photo": false,
+          "type": "transport"
+        },
+        {
+          "time": "21:25",
+          "timeEnd": "14:50",
+          "emoji": "✈️",
+          "title": "바르샤바 출발 → 인천(ICN) 도착 (LO97)",
+          "memo": "인천 국제공항 제1여객터미널 도착 및 귀가 (+1일 월요일 도착)",
+          "tags": ["비행", "10시간 25분 소요"],
+          "tip": "바르샤바 출발 후 약 10시간 반 비행하여 다음 날인 9/27(월) 오후 14:50에 한국에 도착합니다. 고단하지만 행복했던 10일간의 여정을 마무리합니다.",
+          "photo": false,
+          "type": "transport"
+        }
+      ]
+    }
+  ],
+  "info": {
+    "transport": [
+      "독일 뮌헨에서 퓌센(노이슈반슈타인 성)을 거쳐 오스트리아 잘츠부르크까지는 렌터카 없이 대중교통(열차+버스)으로 매우 편리하게 이동할 수 있습니다.",
+      "독일 바이에른 주 전체의 철도와 버스를 무제한 탑승할 수 있는 '바이에른 티켓(Bayern-Ticket, 2인 약 €45)'을 이용하면 기적적인 비용 절약이 가능합니다. (잘츠부르크 중앙역까지 커버됨)",
+      "잘츠부르크 도착 후, 살츠카머구트 알프스 호수 지역(몬제, 장크트길겐, 할슈타트)의 효율적인 관광을 위해 3일간 잘츠부르크 로컬 렌터카를 대여합니다. 반납도 잘츠부르크에 하여 추가 수수료가 없습니다.",
+      "잘츠부르크 → 비엔나 → 프라하의 도시간 장거리 이동은 OBB Railjet 고속 열차를 조기 예매하여 쾌적하게 이동합니다. 유레일 패스보다 조기 예매가 훨씬 저렴합니다."
+    ],
+    "weather": [
+      "9월 초중순 오스트리아 및 센트럴 유럽 평균 기온은 12~20°C입니다. 초가을 날씨에 해당하여 얇은 패딩이나 스웨터, 스카프 등 일교차 대비용 레이어링 겉옷이 필수적입니다.",
+      "특히 산맥과 호수가 모여 있는 퓌센, 베르펜, 할슈타트 지역은 바람이 불면 시내보다 훨씬 서늘하므로 보온에 꼭 유의하세요."
+    ]
+  }
+}

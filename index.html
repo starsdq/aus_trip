@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1D4F35">
+<title>오스트리아 & 사운드 오브 뮤직 10일 여행</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <h1 id="header-title">오스트리아 & 사운드 오브 뮤직 10일 여행</h1>
+  <div class="date-range" id="header-date">로딩중…</div>
+  <div class="weather-links">
+    <span class="weather-label">🌤 날씨</span>
+    <a href="https://weather.com/ko-KR/weather/today/l/Salzburg+Austria?canonicalCityId=52bc66427fc4192b95fae223bfe4f9e11bc90a07153b6cb4ec682498263fe507" target="_blank" rel="noopener noreferrer">잘츠부르크</a>
+    <a href="https://weather.com/ko-KR/weather/today/l/Vienna+Austria?canonicalCityId=7bdf922e968ec17d69288e42f9a74421b8ff17f1a357f864cf44926522e8db50" target="_blank" rel="noopener noreferrer">비엔나</a>
+    <a href="https://weather.com/ko-KR/weather/today/l/Prague+Czech+Republic?canonicalCityId=17c603a6288b5ecb265c010c7324ea942e616cf1f4094a6136e4f35e925c4efc" target="_blank" rel="noopener noreferrer">프라하</a>
+  </div>
+</header>
+
+<nav class="tab-bar" id="tab-bar">
+  <div class="tabs" id="tabs"></div>
+</nav>
+
+<main id="main"></main>
+
+<section class="info-section" id="info-section"></section>
+
+<footer class="app-footer">Have a romantic trip! 🎻🏰🌸</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var DATA_URL = "data/itinerary.json";
+  var suppressSpyUntil = 0;
+
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      for (var k in attrs) {
+        if (k === "class") node.className = attrs[k];
+        else if (k === "text") node.textContent = attrs[k];
+        else if (k === "html") node.innerHTML = attrs[k];
+        else if (k.indexOf("data-") === 0) node.setAttribute(k, attrs[k]);
+        else node.setAttribute(k, attrs[k]);
+      }
+    }
+    if (children && children.length) {
+      for (var i = 0; i < children.length; i++) {
+        if (children[i] != null) node.appendChild(children[i]);
+      }
+    }
+    return node;
+  }
+
+  function formatTime(ev) {
+    if (ev.timeEnd) return ev.time + " ~ " + ev.timeEnd;
+    return ev.time;
+  }
+
+  function buildOptions(ev) {
+    if (!ev.options || !ev.options.length) return null;
+    var optsWrap = el("div", { class: "options" });
+    ev.options.forEach(function (op) {
+      var row = el("div", { class: "option-row" });
+      var isRec = op.label && op.label.indexOf("추천") !== -1;
+      row.appendChild(el("span", {
+        class: "option-label " + (isRec ? "rec" : "alt"),
+        text: op.label
+      }));
+      if (op.mapUrl) {
+        var textWrap = el("span", { class: "option-text" });
+        textWrap.appendChild(el("a", {
+          class: "option-place-link",
+          href: op.mapUrl,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          text: op.name || op.text || "지도 보기"
+        }));
+        if (op.description) {
+          textWrap.appendChild(document.createTextNode(" — " + op.description));
+        }
+        row.appendChild(textWrap);
+      } else {
+        row.appendChild(el("span", { class: "option-text", text: op.text }));
+      }
+      optsWrap.appendChild(row);
+    });
+    return optsWrap;
+  }
+
+  function buildPhotoPlaceholder() {
+    var ph = el("div", { class: "photo-placeholder" });
+    ph.appendChild(el("div", { class: "photo-icon", text: "🏰" }));
+    ph.appendChild(el("div", { class: "photo-text", text: "사진 불러오기 실패" }));
+    return ph;
+  }
+
+  function buildPhoto(ev) {
+    if (ev.photoFile) {
+      var img = el("img", {
+        src: "assets/photos/" + ev.photoFile,
+        class: "place-photo",
+        alt: ev.title || "",
+        loading: "lazy"
+      });
+      img.addEventListener("error", function () {
+        var ph = buildPhotoPlaceholder();
+        if (img.parentNode) img.parentNode.replaceChild(ph, img);
+      });
+      return img;
+    }
+    return buildPhotoPlaceholder();
+  }
+
+  function buildMapLink(ev) {
+    if (!ev.mapUrl) return null;
+    var a = el("a", {
+      class: "map-link",
+      href: ev.mapUrl,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    });
+    a.appendChild(el("span", { class: "map-link-icon", text: "📍" }));
+    a.appendChild(el("span", { class: "map-link-text", text: "지도 보기" }));
+    return a;
+  }
+
+  function renderEvent(ev) {
+    var card = el("div", { class: "card" });
+
+    // --- Always visible area ---
+    card.appendChild(el("div", { class: "time-badge", text: formatTime(ev) }));
+
+    var titleRow = el("div", { class: "title-row" });
+    if (ev.emoji) titleRow.appendChild(el("span", { class: "emoji", text: ev.emoji }));
+    titleRow.appendChild(el("span", { class: "title", text: ev.title || "" }));
+    card.appendChild(titleRow);
+
+    if (ev.memo) {
+      card.appendChild(el("div", { class: "memo", text: ev.memo }));
+    }
+
+    if (ev.tags && ev.tags.length) {
+      var pills = el("div", { class: "pills" });
+      ev.tags.forEach(function (t) {
+        pills.appendChild(el("span", { class: "pill", text: t }));
+      });
+      card.appendChild(pills);
+    }
+
+    // --- Collapsible detail area ---
+    var hasDescription = !!ev.description;
+    var hasPhoto = !!ev.photo;
+    var hasOptions = ev.options && ev.options.length;
+    var hasTip = !!ev.tip;
+    var hasDetail = hasDescription || hasPhoto || hasOptions || hasTip;
+
+    if (hasDetail) {
+      var detail = el("div", { class: "card-detail" });
+
+      if (hasDescription) {
+        detail.appendChild(el("div", { class: "description", text: ev.description }));
+      }
+      if (hasPhoto) {
+        detail.appendChild(buildPhoto(ev));
+      }
+      if (hasOptions) {
+        detail.appendChild(buildOptions(ev));
+      }
+      if (hasTip) {
+        detail.appendChild(el("div", { class: "tip", text: "💡 " + ev.tip }));
+      }
+
+      card.appendChild(detail);
+
+      var toggle = el("button", {
+        class: "detail-toggle",
+        type: "button",
+        "aria-expanded": "false"
+      });
+      var toggleText = el("span", { class: "toggle-text", text: "상세 정보" });
+      var chev = el("span", { class: "chev", text: "▾" });
+      toggle.appendChild(toggleText);
+      toggle.appendChild(chev);
+
+      toggle.addEventListener("click", function () {
+        var isOpen = detail.classList.toggle("open");
+        toggle.classList.toggle("open", isOpen);
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        toggleText.textContent = isOpen ? "접기" : "상세 정보";
+        chev.textContent = isOpen ? "▴" : "▾";
+      });
+
+      card.appendChild(toggle);
+    }
+
+    // 지도 링크 — 항상 표시 영역 (카드 하단)
+    var mapLink = buildMapLink(ev);
+    if (mapLink) {
+      card.appendChild(mapLink);
+    }
+
+    var wrap = el("div", { class: "event", "data-type": ev.type || "transport" }, [card]);
+    return wrap;
+  }
+
+  function renderDay(day) {
+    var section = el("section", {
+      class: "day-section",
+      id: "day-" + day.dayNum
+    });
+
+    var header = el("div", { class: "day-header" });
+    var top = el("div");
+    top.appendChild(el("span", { class: "day-label", text: day.label }));
+    top.appendChild(el("span", { class: "day-date", text: day.date }));
+    header.appendChild(top);
+    header.appendChild(el("div", { class: "day-theme", text: day.theme }));
+    section.appendChild(header);
+
+    var timeline = el("div", { class: "timeline" });
+    (day.events || []).forEach(function (ev) {
+      timeline.appendChild(renderEvent(ev));
+    });
+    section.appendChild(timeline);
+
+    return section;
+  }
+
+  function renderTabs(days) {
+    var tabsRoot = $("#tabs");
+    tabsRoot.innerHTML = "";
+    days.forEach(function (d, idx) {
+      var btn = el("button", {
+        class: "tab" + (idx === 0 ? " active" : ""),
+        "data-target": "day-" + d.dayNum,
+        type: "button",
+        text: d.label
+      });
+      btn.addEventListener("click", function () {
+        var target = document.getElementById(this.getAttribute("data-target"));
+        if (target) {
+          setActiveTab(this);
+          suppressSpyUntil = Date.now() + 1200;
+          var tabBar = $("#tab-bar");
+          var offset = (tabBar ? tabBar.offsetHeight : 48) + 4;
+          var rect = target.getBoundingClientRect();
+          var targetY = window.pageYOffset + rect.top - offset;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+        }
+      });
+      tabsRoot.appendChild(btn);
+    });
+  }
+
+  function setActiveTab(btn) {
+    var all = document.querySelectorAll(".tab");
+    for (var i = 0; i < all.length; i++) all[i].classList.remove("active");
+    btn.classList.add("active");
+
+    // 활성화된 탭이 화면 중앙 근처에 오도록 가로 스크롤 이동
+    var tabBar = $("#tab-bar");
+    if (tabBar) {
+      var centerScroll = btn.offsetLeft - (tabBar.clientWidth / 2) + (btn.clientWidth / 2);
+      tabBar.scrollTo({ left: centerScroll, behavior: "smooth" });
+    }
+  }
+
+  function setupScrollSpy(days) {
+    var sections = days.map(function (d) {
+      return document.getElementById("day-" + d.dayNum);
+    });
+
+    function onScroll() {
+      if (Date.now() < suppressSpyUntil) return;
+      var tabBar = $("#tab-bar");
+      var offset = (tabBar ? tabBar.offsetHeight : 48) + 20;
+      var activeIdx = 0;
+      for (var i = 0; i < sections.length; i++) {
+        if (!sections[i]) continue;
+        var top = sections[i].getBoundingClientRect().top;
+        if (top - offset <= 0) activeIdx = i;
+      }
+      var atBottom = (window.innerHeight + window.pageYOffset) >=
+                     (document.body.scrollHeight - 6);
+      if (atBottom) activeIdx = sections.length - 1;
+
+      var tabs = document.querySelectorAll(".tab");
+      if (tabs[activeIdx] && !tabs[activeIdx].classList.contains("active")) {
+        setActiveTab(tabs[activeIdx]);
+      }
+    }
+
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          onScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  function renderInfo(info) {
+    var root = $("#info-section");
+    root.innerHTML = "";
+    root.appendChild(el("h2", { text: "실용정보" }));
+
+    function makeCard(icon, title, items) {
+      var card = el("div", { class: "info-card" });
+      card.appendChild(el("h3", { text: icon + " " + title }));
+      var ul = el("ul");
+      (items || []).forEach(function (t) {
+        ul.appendChild(el("li", { text: t }));
+      });
+      card.appendChild(ul);
+      return card;
+    }
+
+    if (info) {
+      root.appendChild(makeCard("🚆", "교통 꿀팁", info.transport || []));
+      root.appendChild(makeCard("🌤️", "날씨 & 계절 가이드", info.weather || []));
+    }
+  }
+
+  function init(data) {
+    document.title = data.title;
+    $("#header-title").textContent = data.title;
+    $("#header-date").textContent = data.dateRange;
+
+    renderTabs(data.days);
+
+    var main = $("#main");
+    main.innerHTML = "";
+    data.days.forEach(function (day) {
+      main.appendChild(renderDay(day));
+    });
+
+    renderInfo(data.info);
+    setupScrollSpy(data.days);
+  }
+
+  fetch(DATA_URL, { cache: "no-cache" })
+    .then(function (r) {
+      if (!r.ok) throw new Error("Failed to load: " + r.status);
+      return r.json();
+    })
+    .then(init)
+    .catch(function (err) {
+      console.error(err);
+      $("#main").innerHTML =
+        '<div style="padding:20px;color:#c0392b;font-size:14px;">' +
+        '데이터를 불러오지 못했습니다: ' + (err && err.message ? err.message : err) +
+        '</div>';
+    });
+})();
+</script>
+
+</body>
+</html>

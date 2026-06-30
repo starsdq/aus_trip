@@ -1,0 +1,586 @@
+/* ===== Reset & Base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --main: #1D4F35;       /* Alpine Dark Green */
+  --main-dark: #133624;
+  --point: #C39B34;      /* Imperial Gold */
+  --point-light: #F4ECE1;
+  --bg: #F6F8F6;         /* Soft Off-White with Green Tint */
+  --card: #FFFFFF;
+  --text: #2B332E;
+  --text-sub: #5C6660;
+  --text-mute: #8E9992;
+  --border: #E3ECE5;
+
+  --dot-transport: #8E9992;
+  --dot-food: #E5A93C;
+  --dot-sightseeing: #1D4F35;
+  --dot-hotel: #C39B34;
+  --dot-rest: #6CA5C9;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+               "Malgun Gothic", "맑은 고딕", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--card);
+  min-height: 100vh;
+  padding-bottom: 48px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Header ===== */
+.app-header {
+  background: linear-gradient(135deg, var(--main) 0%, var(--main-dark) 100%);
+  color: #fff;
+  padding: 24px 20px 20px;
+  position: relative;
+  border-bottom: 3px solid var(--point);
+}
+.app-header h1 {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.app-header .date-range {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.9;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+.app-header .weather-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.app-header .weather-links .weather-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.app-header .weather-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  letter-spacing: 0.1px;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.app-header .weather-links a:hover,
+.app-header .weather-links a:active {
+  background: var(--point);
+  transform: translateY(-1px);
+}
+
+/* ===== Tab Bar (sticky) ===== */
+.tab-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  height: 48px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  box-shadow: 0 4px 6px -4px rgba(0,0,0,0.05);
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-bar .tabs {
+  display: inline-flex;
+  height: 100%;
+  padding: 0 8px;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sub);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.tab.active {
+  color: var(--main);
+  font-weight: 800;
+  border-bottom-color: var(--main);
+}
+
+/* ===== Day Section ===== */
+.day-section {
+  padding: 20px 16px 10px;
+  scroll-margin-top: 52px;
+}
+.day-header {
+  margin-bottom: 16px;
+  padding-left: 4px;
+}
+.day-header .day-label {
+  display: inline-block;
+  background: var(--main);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+.day-header .day-date {
+  margin-left: 8px;
+  font-size: 13px;
+  color: var(--text-sub);
+  font-weight: 600;
+}
+.day-header .day-theme {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+/* ===== Timeline ===== */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.event {
+  position: relative;
+  margin-bottom: 16px;
+}
+.event::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--dot-transport);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px var(--border);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+.event[data-type="transport"]::before { background: var(--dot-transport); }
+.event[data-type="food"]::before { background: var(--dot-food); }
+.event[data-type="sightseeing"]::before { background: var(--dot-sightseeing); }
+.event[data-type="hotel"]::before { background: var(--dot-hotel); }
+.event[data-type="rest"]::before { background: var(--dot-rest); }
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 3px 12px rgba(29, 79, 53, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(29, 79, 53, 0.08);
+}
+
+/* Transport event card overrides */
+.event[data-type="transport"] .card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 2px 0 2px 2px;
+}
+.event[data-type="transport"] .card:hover {
+  transform: none;
+}
+.event[data-type="transport"] .time-badge {
+  background: transparent;
+  color: var(--text-mute);
+  padding: 0;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.event[data-type="transport"] .title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sub);
+}
+.event[data-type="transport"] .emoji {
+  font-size: 15px;
+}
+.event[data-type="transport"] .map-link {
+  margin-left: 0;
+}
+
+/* Color chips for emojis in content cards */
+.event:not([data-type="transport"]) .title-row {
+  align-items: center;
+}
+.event:not([data-type="transport"]) .emoji {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.event[data-type="food"] .emoji { background: #FFF3D6; }
+.event[data-type="sightseeing"] .emoji { background: #E1EBE2; }
+.event[data-type="hotel"] .emoji { background: #FAF0D2; }
+.event[data-type="rest"] .emoji { background: #EBF3F8; }
+
+.card .time-badge {
+  display: inline-block;
+  background: #E1EBE2;
+  color: var(--main-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+.card .title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.card .emoji {
+  font-size: 18px;
+  line-height: 1;
+}
+.card .title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.card .memo {
+  font-size: 13.5px;
+  color: var(--text-sub);
+  line-height: 1.6;
+  margin-top: 2px;
+}
+
+/* Options (추천 / 대안) */
+.options {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.option-label {
+  flex-shrink: 0;
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+.option-label.rec {
+  background: var(--point);
+  color: #fff;
+}
+.option-label.alt {
+  background: #E1EBE2;
+  color: var(--main-dark);
+}
+.option-text {
+  color: var(--text-sub);
+}
+.option-place-link {
+  color: var(--main-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+}
+.option-place-link:hover {
+  color: var(--point);
+}
+
+/* Pills (tags) */
+.pills {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #E1EBE2;
+  color: var(--main-dark);
+  letter-spacing: 0.1px;
+}
+
+/* Tip */
+.tip {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #FFF9EB;
+  border-left: 4px solid #E5A93C;
+  border-radius: 4px;
+  font-size: 12.5px;
+  color: #7A5714;
+  line-height: 1.6;
+}
+
+/* Description (상세 설명) */
+.description {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #F4F7F4;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.65;
+  border-left: 4px solid var(--main);
+}
+
+/* Photo placeholder */
+.photo-placeholder {
+  margin-top: 12px;
+  height: 160px;
+  background:
+    linear-gradient(135deg, rgba(29,79,53,0.06), rgba(195,155,52,0.06)),
+    repeating-linear-gradient(
+      45deg,
+      #EAEFEA,
+      #EAEFEA 10px,
+      #E2EAE2 10px,
+      #E2EAE2 20px
+    );
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-dark);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1px dashed #B8CBBF;
+  gap: 4px;
+}
+.photo-placeholder .photo-icon {
+  font-size: 26px;
+  line-height: 1;
+  opacity: 0.8;
+}
+.photo-placeholder .photo-text {
+  color: var(--text-mute);
+  font-weight: 500;
+}
+
+/* Real place photo */
+.place-photo {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 12px;
+  display: block;
+  max-height: 220px;
+  object-fit: cover;
+  background: #E1EBE2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Map link button */
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-sub);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #F4F7F4;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+.map-link:first-child,
+.card > .map-link {
+  margin-left: 0;
+}
+.map-link .map-link-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+.map-link:hover,
+.map-link:active {
+  color: #fff;
+  background: var(--main);
+  border-color: var(--main);
+}
+
+/* Accordion (Card Detail Toggle) */
+.card-detail {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+.card-detail.open {
+  max-height: 2000px;
+}
+.detail-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 7px 14px;
+  min-height: 32px;
+  background: #F4F7F4;
+  color: var(--main-dark);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.detail-toggle:hover,
+.detail-toggle:active {
+  background: #E1EBE2;
+  border-color: var(--main-dark);
+}
+.detail-toggle .chev {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-size: 10px;
+  line-height: 1;
+}
+.detail-toggle.open .chev {
+  transform: rotate(180deg);
+}
+
+/* ===== Info Section ===== */
+.info-section {
+  padding: 24px 16px 28px;
+  margin-top: 15px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.info-section h2 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--main);
+  margin-bottom: 12px;
+  padding-left: 4px;
+  letter-spacing: -0.3px;
+}
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.info-card h3 {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+.info-card li {
+  position: relative;
+  padding: 4px 0 4px 14px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+.info-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: var(--point);
+  font-weight: 800;
+}
+
+/* ===== Footer ===== */
+.app-footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-mute);
+  padding: 20px 0 30px;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+/* ===== Small screens (< 375px) ===== */
+@media (max-width: 360px) {
+  html, body { font-size: 14px; }
+  .day-section { padding: 16px 12px 8px; }
+  .tab { padding: 0 12px; font-size: 13.5px; }
+}
