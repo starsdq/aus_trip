@@ -13,12 +13,14 @@
   <h1 id="header-title">오스트리아 & 사운드 오브 뮤직 10일 여행</h1>
   <div class="date-range" id="header-date">로딩중…</div>
   <div class="weather-links">
-    <span class="weather-label">🌤 날씨</span>
-    <a href="https://weather.com/ko-KR/weather/today/l/Salzburg+Austria?canonicalCityId=52bc66427fc4192b95fae223bfe4f9e11bc90a07153b6cb4ec682498263fe507" target="_blank" rel="noopener noreferrer">잘츠부르크</a>
-    <a href="https://weather.com/ko-KR/weather/today/l/Vienna+Austria?canonicalCityId=7bdf922e968ec17d69288e42f9a74421b8ff17f1a357f864cf44926522e8db50" target="_blank" rel="noopener noreferrer">비엔나</a>
-    <a href="https://weather.com/ko-KR/weather/today/l/Prague+Czech+Republic?canonicalCityId=17c603a6288b5ecb265c010c7324ea942e616cf1f4094a6136e4f35e925c4efc" target="_blank" rel="noopener noreferrer">프라하</a>
+    <span class="weather-label">공식 기상</span>
+    <a href="https://www.geosphere.at/" target="_blank" rel="noopener noreferrer">오스트리아</a>
+    <a href="https://www.dwd.de/EN/Home/home_node.html" target="_blank" rel="noopener noreferrer">독일</a>
+    <a href="https://www.chmi.cz/?l=en" target="_blank" rel="noopener noreferrer">체코</a>
   </div>
 </header>
+
+<section class="trip-status" id="trip-status" hidden></section>
 
 <nav class="tab-bar" id="tab-bar">
   <div class="tabs" id="tabs"></div>
@@ -28,14 +30,16 @@
 
 <section class="info-section" id="info-section"></section>
 
-<footer class="app-footer">Have a romantic trip! 🎻🏰🌸</footer>
+<footer class="app-footer">검증 상태를 재확인하면서 안전하게 다녀오세요.</footer>
 
 <script>
 (function () {
   "use strict";
 
   var DATA_URL = "data/itinerary.json";
+  var AUDIT_URL = "data/trip-audit.json";
   var suppressSpyUntil = 0;
+  var detailSeq = 0;
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
 
@@ -47,6 +51,8 @@
         else if (k === "text") node.textContent = attrs[k];
         else if (k === "html") node.innerHTML = attrs[k];
         else if (k.indexOf("data-") === 0) node.setAttribute(k, attrs[k]);
+        else if (attrs[k] === true) node.setAttribute(k, "");
+        else if (attrs[k] === false || attrs[k] == null) continue;
         else node.setAttribute(k, attrs[k]);
       }
     }
@@ -59,8 +65,18 @@
   }
 
   function formatTime(ev) {
-    if (ev.timeEnd) return ev.time + " ~ " + ev.timeEnd;
+    if (ev.timeEnd) {
+      var suffix = ev.timeEndNote || (ev.arrivalDayOffset ? "(+" + ev.arrivalDayOffset + "일)" : "");
+      return ev.time + " ~ " + ev.timeEnd + (suffix ? " " + suffix : "");
+    }
     return ev.time;
+  }
+
+  function toneClass(tone) {
+    if (tone === "good" || tone === "ok") return "ok";
+    if (tone === "high" || tone === "warning" || tone === "risk") return "warning";
+    if (tone === "danger" || tone === "critical") return "danger";
+    return "neutral";
   }
 
   function buildOptions(ev) {
@@ -127,8 +143,55 @@
       rel: "noopener noreferrer"
     });
     a.appendChild(el("span", { class: "map-link-icon", text: "📍" }));
-    a.appendChild(el("span", { class: "map-link-text", text: "지도 보기" }));
+    a.appendChild(el("span", { class: "map-link-text", text: ev.mapLabel || "지도" }));
     return a;
+  }
+
+  function buildMeta(ev) {
+    var items = [];
+    if (ev.bookingStatus) items.push({ label: ev.bookingStatus, tone: ev.riskLevel || "neutral" });
+    if (ev.costStatus) items.push({ label: ev.costStatus, tone: "ok" });
+    if (ev.verifiedAt) items.push({ label: "검증 " + ev.verifiedAt, tone: "neutral" });
+    if (!items.length) return null;
+
+    var wrap = el("div", { class: "status-pills" });
+    items.forEach(function (item) {
+      wrap.appendChild(el("span", {
+        class: "status-pill " + toneClass(item.tone),
+        text: item.label
+      }));
+    });
+    return wrap;
+  }
+
+  function buildInsightList(ev) {
+    var rows = [
+      ["action", "할 일", ev.actionNote],
+      ["risk", "주의", ev.riskNote],
+      ["cost", "비용", ev.costNote],
+      ["source", "근거", ev.sourceNote]
+    ].filter(function (row) { return !!row[2]; });
+
+    if (!rows.length && !ev.sourceUrl) return null;
+    var wrap = el("div", { class: "insights" });
+    rows.forEach(function (row) {
+      var item = el("div", { class: "insight " + row[0] });
+      item.appendChild(el("strong", { text: row[1] }));
+      item.appendChild(el("span", { text: row[2] }));
+      wrap.appendChild(item);
+    });
+    if (ev.sourceUrl) {
+      var item = el("div", { class: "insight source" });
+      item.appendChild(el("strong", { text: "링크" }));
+      item.appendChild(el("a", {
+        href: ev.sourceUrl,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        text: ev.sourceLabel || "공식/검증 링크"
+      }));
+      wrap.appendChild(item);
+    }
+    return wrap;
   }
 
   function renderEvent(ev) {
@@ -154,15 +217,27 @@
       card.appendChild(pills);
     }
 
+    var meta = buildMeta(ev);
+    if (meta) card.appendChild(meta);
+
     // --- Collapsible detail area ---
     var hasDescription = !!ev.description;
-    var hasPhoto = !!ev.photo;
+    var hasPhoto = !!ev.photoFile;
     var hasOptions = ev.options && ev.options.length;
     var hasTip = !!ev.tip;
-    var hasDetail = hasDescription || hasPhoto || hasOptions || hasTip;
+    var insights = buildInsightList(ev);
+    var hasDetail = hasDescription || hasPhoto || hasOptions || hasTip || !!insights;
 
     if (hasDetail) {
-      var detail = el("div", { class: "card-detail" });
+      var detailId = "detail-" + (++detailSeq);
+      var detail = el("div", {
+        class: "card-detail",
+        id: detailId,
+        hidden: true,
+        inert: true,
+        "aria-hidden": "true"
+      });
+      detail.inert = true;
 
       if (hasDescription) {
         detail.appendChild(el("div", { class: "description", text: ev.description }));
@@ -176,13 +251,17 @@
       if (hasTip) {
         detail.appendChild(el("div", { class: "tip", text: "💡 " + ev.tip }));
       }
+      if (insights) {
+        detail.appendChild(insights);
+      }
 
       card.appendChild(detail);
 
       var toggle = el("button", {
         class: "detail-toggle",
         type: "button",
-        "aria-expanded": "false"
+        "aria-expanded": "false",
+        "aria-controls": detailId
       });
       var toggleText = el("span", { class: "toggle-text", text: "상세 정보" });
       var chev = el("span", { class: "chev", text: "▾" });
@@ -190,11 +269,16 @@
       toggle.appendChild(chev);
 
       toggle.addEventListener("click", function () {
-        var isOpen = detail.classList.toggle("open");
+        var isOpen = toggle.getAttribute("aria-expanded") !== "true";
+        detail.hidden = !isOpen;
+        detail.inert = !isOpen;
+        if (isOpen) detail.removeAttribute("inert");
+        else detail.setAttribute("inert", "");
+        detail.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        detail.classList.toggle("open", isOpen);
         toggle.classList.toggle("open", isOpen);
         toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
         toggleText.textContent = isOpen ? "접기" : "상세 정보";
-        chev.textContent = isOpen ? "▴" : "▾";
       });
 
       card.appendChild(toggle);
@@ -236,10 +320,12 @@
   function renderTabs(days) {
     var tabsRoot = $("#tabs");
     tabsRoot.innerHTML = "";
+    tabsRoot.setAttribute("role", "list");
     days.forEach(function (d, idx) {
       var btn = el("button", {
         class: "tab" + (idx === 0 ? " active" : ""),
         "data-target": "day-" + d.dayNum,
+        "aria-current": idx === 0 ? "true" : "false",
         type: "button",
         text: d.label
       });
@@ -261,14 +347,73 @@
 
   function setActiveTab(btn) {
     var all = document.querySelectorAll(".tab");
-    for (var i = 0; i < all.length; i++) all[i].classList.remove("active");
+    for (var i = 0; i < all.length; i++) {
+      all[i].classList.remove("active");
+      all[i].setAttribute("aria-current", "false");
+    }
     btn.classList.add("active");
+    btn.setAttribute("aria-current", "true");
 
     // 활성화된 탭이 화면 중앙 근처에 오도록 가로 스크롤 이동
     var tabBar = $("#tab-bar");
     if (tabBar) {
       var centerScroll = btn.offsetLeft - (tabBar.clientWidth / 2) + (btn.clientWidth / 2);
       tabBar.scrollTo({ left: centerScroll, behavior: "smooth" });
+    }
+  }
+
+  function renderStatus(audit) {
+    var root = $("#trip-status");
+    root.innerHTML = "";
+    if (!audit) {
+      root.hidden = true;
+      return;
+    }
+    root.hidden = false;
+
+    var head = el("div", { class: "trip-status-head" });
+    var titleWrap = el("div");
+    titleWrap.appendChild(el("p", { class: "eyebrow", text: audit.eyebrow || "검증 대시보드" }));
+    titleWrap.appendChild(el("h2", { text: audit.title || "여행 실행 점검" }));
+    if (audit.updatedAt) {
+      titleWrap.appendChild(el("p", { class: "status-updated", text: "업데이트: " + audit.updatedAt }));
+    }
+    head.appendChild(titleWrap);
+    if (audit.qualityScore) {
+      head.appendChild(el("div", { class: "score-badge", text: audit.qualityScore }));
+    }
+    root.appendChild(head);
+
+    if (audit.statusCards && audit.statusCards.length) {
+      var cards = el("div", { class: "status-grid" });
+      audit.statusCards.forEach(function (card) {
+        var item = el("article", { class: "status-card " + toneClass(card.tone) });
+        item.appendChild(el("span", { class: "status-card-label", text: card.label }));
+        item.appendChild(el("strong", { text: card.value }));
+        if (card.note) item.appendChild(el("p", { text: card.note }));
+        cards.appendChild(item);
+      });
+      root.appendChild(cards);
+    }
+
+    if (audit.actionItems && audit.actionItems.length) {
+      var actions = el("div", { class: "audit-actions" });
+      actions.appendChild(el("h3", { text: "재확인 체크리스트" }));
+      audit.actionItems.forEach(function (item) {
+        var row = el("div", { class: "audit-action " + toneClass(item.tone) });
+        row.appendChild(el("strong", { text: item.label }));
+        row.appendChild(el("span", { text: item.text }));
+        if (item.url) {
+          row.appendChild(el("a", {
+            href: item.url,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            text: item.linkLabel || "확인"
+          }));
+        }
+        actions.appendChild(row);
+      });
+      root.appendChild(actions);
     }
   }
 
@@ -331,7 +476,9 @@
     }
   }
 
-  function init(data) {
+  function init(payload) {
+    var data = payload.data;
+    var audit = payload.audit;
     document.title = data.title;
     $("#header-title").textContent = data.title;
     $("#header-date").textContent = data.dateRange;
@@ -345,13 +492,32 @@
     });
 
     renderInfo(data.info);
+    renderStatus(audit);
     setupScrollSpy(data.days);
   }
 
-  fetch(DATA_URL, { cache: "no-cache" })
+  function fetchJson(url, required) {
+    return fetch(url, { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) {
+          if (required) throw new Error("Failed to load: " + url + " (" + r.status + ")");
+          return null;
+        }
+        return r.json();
+      })
+      .catch(function (err) {
+        if (required) throw err;
+        console.warn(err);
+        return null;
+      });
+  }
+
+  Promise.all([
+    fetchJson(DATA_URL, true),
+    fetchJson(AUDIT_URL, false)
+  ])
     .then(function (r) {
-      if (!r.ok) throw new Error("Failed to load: " + r.status);
-      return r.json();
+      return { data: r[0], audit: r[1] };
     })
     .then(init)
     .catch(function (err) {
