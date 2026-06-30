@@ -89,13 +89,13 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ===== Trip Status ===== */
-.trip-status {
+/* ===== Trip Overview ===== */
+.trip-overview {
   padding: 18px 16px 20px;
   background: #fff;
   border-bottom: 1px solid var(--border);
 }
-.trip-status-head {
+.trip-overview-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -109,100 +109,85 @@ body {
   letter-spacing: 0;
   text-transform: uppercase;
 }
-.trip-status h2 {
+.trip-overview h2 {
   margin-top: 2px;
   font-size: 19px;
   line-height: 1.25;
   color: var(--text);
   letter-spacing: 0;
 }
-.status-updated {
-  margin-top: 4px;
+.overview-sub {
+  margin-top: 6px;
   font-size: 12px;
-  color: var(--text-mute);
+  color: var(--text-sub);
+  line-height: 1.55;
 }
-.score-badge {
-  flex-shrink: 0;
-  min-width: 54px;
-  min-height: 54px;
+.route-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0;
+}
+.route-place {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: #F3FAF5;
+  border: 1px solid #B8D2C0;
+  color: var(--main-dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+.route-arrow {
+  color: var(--text-mute);
+  font-weight: 800;
+}
+.overview-actions {
+  margin: 10px 0 12px;
+}
+.overview-route-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
+  padding: 0 14px;
   border-radius: 8px;
-  background: var(--main-dark);
+  background: var(--main);
   color: #fff;
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
 }
-.status-grid {
+.overview-route-link:hover,
+.overview-route-link:active {
+  background: var(--main-dark);
+}
+.overview-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
-.status-card {
+.overview-card {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 10px 12px;
   background: #fff;
 }
-.status-card.ok { border-color: #B8D2C0; background: #F3FAF5; }
-.status-card.warning { border-color: #E8C16E; background: #FFF9EB; }
-.status-card.danger { border-color: #E1AEA7; background: #FFF4F2; }
-.status-card-label {
+.overview-card-label {
   display: block;
-  color: var(--text-sub);
+  color: var(--accent);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
 }
-.status-card strong {
-  display: block;
-  margin-top: 2px;
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.25;
-}
-.status-card p {
+.overview-card p {
   margin-top: 4px;
   color: var(--text-sub);
   font-size: 12px;
   line-height: 1.45;
 }
-.audit-actions {
-  margin-top: 12px;
-  display: grid;
-  gap: 8px;
-}
-.audit-actions h3 {
-  font-size: 14px;
-  color: var(--main-dark);
-}
-.audit-action {
-  display: grid;
-  grid-template-columns: 64px 1fr auto;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 12px;
-}
-.audit-action strong { color: var(--text); }
-.audit-action span { color: var(--text-sub); line-height: 1.45; }
-.audit-action a {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  border-radius: 8px;
-  background: var(--main);
-  color: #fff;
-  font-weight: 800;
-  text-decoration: none;
-}
-.audit-action.warning { background: #FFF9EB; }
-.audit-action.danger { background: #FFF4F2; }
 .app-header .weather-links a:hover,
 .app-header .weather-links a:active {
   background: var(--point);
@@ -774,8 +759,7 @@ body {
   html, body { font-size: 14px; }
   .day-section { padding: 16px 12px 8px; }
   .tab { padding: 0 12px; font-size: 13.5px; }
-  .status-grid { grid-template-columns: 1fr; }
-  .audit-action { grid-template-columns: 1fr; }
+  .overview-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 680px) {
@@ -787,7 +771,7 @@ body {
   }
   .day-section,
   .info-section,
-  .trip-status {
+  .trip-overview {
     padding-left: 24px;
     padding-right: 24px;
   }

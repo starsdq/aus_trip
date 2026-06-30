@@ -20,7 +20,7 @@
   </div>
 </header>
 
-<section class="trip-status" id="trip-status" hidden></section>
+<section class="trip-overview" id="trip-overview" hidden></section>
 
 <nav class="tab-bar" id="tab-bar">
   <div class="tabs" id="tabs"></div>
@@ -30,14 +30,13 @@
 
 <section class="info-section" id="info-section"></section>
 
-<footer class="app-footer">검증 상태를 재확인하면서 안전하게 다녀오세요.</footer>
+<footer class="app-footer">Have a romantic trip! 🎻🏰🌸</footer>
 
 <script>
 (function () {
   "use strict";
 
   var DATA_URL = "data/itinerary.json";
-  var AUDIT_URL = "data/trip-audit.json";
   var suppressSpyUntil = 0;
   var detailSeq = 0;
 
@@ -151,7 +150,6 @@
     var items = [];
     if (ev.bookingStatus) items.push({ label: ev.bookingStatus, tone: ev.riskLevel || "neutral" });
     if (ev.costStatus) items.push({ label: ev.costStatus, tone: "ok" });
-    if (ev.verifiedAt) items.push({ label: "검증 " + ev.verifiedAt, tone: "neutral" });
     if (!items.length) return null;
 
     var wrap = el("div", { class: "status-pills" });
@@ -187,7 +185,7 @@
         href: ev.sourceUrl,
         target: "_blank",
         rel: "noopener noreferrer",
-        text: ev.sourceLabel || "공식/검증 링크"
+        text: ev.sourceLabel || "공식 링크"
       }));
       wrap.appendChild(item);
     }
@@ -362,59 +360,58 @@
     }
   }
 
-  function renderStatus(audit) {
-    var root = $("#trip-status");
+  function renderOverview(data) {
+    var root = $("#trip-overview");
     root.innerHTML = "";
-    if (!audit) {
+    if (!data || !data.days || !data.days.length) {
       root.hidden = true;
       return;
     }
     root.hidden = false;
 
-    var head = el("div", { class: "trip-status-head" });
+    var head = el("div", { class: "trip-overview-head" });
     var titleWrap = el("div");
-    titleWrap.appendChild(el("p", { class: "eyebrow", text: audit.eyebrow || "검증 대시보드" }));
-    titleWrap.appendChild(el("h2", { text: audit.title || "여행 실행 점검" }));
-    if (audit.updatedAt) {
-      titleWrap.appendChild(el("p", { class: "status-updated", text: "업데이트: " + audit.updatedAt }));
-    }
+    titleWrap.appendChild(el("p", { class: "eyebrow", text: "10일 여행 계획" }));
+    titleWrap.appendChild(el("h2", { text: "뮌헨 인, 프라하 아웃으로 흐르는 알프스 & 음악 루트" }));
+    titleWrap.appendChild(el("p", {
+      class: "overview-sub",
+      text: "도시 이동은 열차 중심, 잘츠부르크 교외와 살츠카머구트만 렌터카로 묶은 실행형 일정입니다."
+    }));
     head.appendChild(titleWrap);
-    if (audit.qualityScore) {
-      head.appendChild(el("div", { class: "score-badge", text: audit.qualityScore }));
-    }
     root.appendChild(head);
 
-    if (audit.statusCards && audit.statusCards.length) {
-      var cards = el("div", { class: "status-grid" });
-      audit.statusCards.forEach(function (card) {
-        var item = el("article", { class: "status-card " + toneClass(card.tone) });
-        item.appendChild(el("span", { class: "status-card-label", text: card.label }));
-        item.appendChild(el("strong", { text: card.value }));
-        if (card.note) item.appendChild(el("p", { text: card.note }));
-        cards.appendChild(item);
-      });
-      root.appendChild(cards);
+    var route = el("div", { class: "route-strip" });
+    ["뮌헨", "퓌센", "잘츠부르크", "살츠카머구트", "비엔나", "프라하"].forEach(function (place, idx, arr) {
+      route.appendChild(el("span", { class: "route-place", text: place }));
+      if (idx < arr.length - 1) route.appendChild(el("span", { class: "route-arrow", text: "→" }));
+    });
+    root.appendChild(route);
+
+    if (data.routeMapUrl) {
+      var routeActions = el("div", { class: "overview-actions" });
+      routeActions.appendChild(el("a", {
+        class: "overview-route-link",
+        href: data.routeMapUrl,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        text: "전체 경로 지도"
+      }));
+      root.appendChild(routeActions);
     }
 
-    if (audit.actionItems && audit.actionItems.length) {
-      var actions = el("div", { class: "audit-actions" });
-      actions.appendChild(el("h3", { text: "재확인 체크리스트" }));
-      audit.actionItems.forEach(function (item) {
-        var row = el("div", { class: "audit-action " + toneClass(item.tone) });
-        row.appendChild(el("strong", { text: item.label }));
-        row.appendChild(el("span", { text: item.text }));
-        if (item.url) {
-          row.appendChild(el("a", {
-            href: item.url,
-            target: "_blank",
-            rel: "noopener noreferrer",
-            text: item.linkLabel || "확인"
-          }));
-        }
-        actions.appendChild(row);
-      });
-      root.appendChild(actions);
-    }
+    var cards = el("div", { class: "overview-grid" });
+    [
+      ["숙박 흐름", "뮌헨 1박 → 잘츠부르크 2박 → 장크트길겐 1박 → 비엔나 3박 → 프라하 2박"],
+      ["이동 전략", "뮌헨·잘츠부르크·비엔나·프라하는 열차 중심, 알프스 호수권은 2일 렌터카"],
+      ["예약 우선", "항공권 확정 뒤 노이슈반슈타인, 쇤브룬, 공연 티켓 순서로 고정"],
+      ["오늘 볼 것", "아래 Day 탭에서 날짜별 동선, 지도, 식당 후보, 예약 메모를 바로 확인"]
+    ].forEach(function (item) {
+      var card = el("article", { class: "overview-card" });
+      card.appendChild(el("span", { class: "overview-card-label", text: item[0] }));
+      card.appendChild(el("p", { text: item[1] }));
+      cards.appendChild(card);
+    });
+    root.appendChild(cards);
   }
 
   function setupScrollSpy(days) {
@@ -476,9 +473,7 @@
     }
   }
 
-  function init(payload) {
-    var data = payload.data;
-    var audit = payload.audit;
+  function init(data) {
     document.title = data.title;
     $("#header-title").textContent = data.title;
     $("#header-date").textContent = data.dateRange;
@@ -492,7 +487,7 @@
     });
 
     renderInfo(data.info);
-    renderStatus(audit);
+    renderOverview(data);
     setupScrollSpy(data.days);
   }
 
@@ -512,13 +507,7 @@
       });
   }
 
-  Promise.all([
-    fetchJson(DATA_URL, true),
-    fetchJson(AUDIT_URL, false)
-  ])
-    .then(function (r) {
-      return { data: r[0], audit: r[1] };
-    })
+  fetchJson(DATA_URL, true)
     .then(init)
     .catch(function (err) {
       console.error(err);
