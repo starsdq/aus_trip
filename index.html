@@ -13,10 +13,11 @@
   <h1 id="header-title">오스트리아 & 사운드 오브 뮤직 10일 여행</h1>
   <div class="date-range" id="header-date">로딩중…</div>
   <div class="weather-links">
-    <span class="weather-label">공식 기상</span>
-    <a href="https://www.geosphere.at/" target="_blank" rel="noopener noreferrer">오스트리아</a>
-    <a href="https://www.dwd.de/EN/Home/home_node.html" target="_blank" rel="noopener noreferrer">독일</a>
-    <a href="https://www.chmi.cz/?l=en" target="_blank" rel="noopener noreferrer">체코</a>
+    <span class="weather-label">날씨</span>
+    <a href="https://weather.com/weather/today/l/GMXX0087:1:GM" target="_blank" rel="noopener noreferrer">뮌헨</a>
+    <a href="https://weather.com/weather/today/l/AUXX0016:1:AU" target="_blank" rel="noopener noreferrer">잘츠부르크</a>
+    <a href="https://weather.com/weather/today/l/AUXX0025:1:AU" target="_blank" rel="noopener noreferrer">빈</a>
+    <a href="https://weather.com/weather/today/l/EZXX0012:1:EZ" target="_blank" rel="noopener noreferrer">프라하</a>
   </div>
 </header>
 
@@ -225,6 +226,8 @@
     var hasTip = !!ev.tip;
     var insights = buildInsightList(ev);
     var hasDetail = hasDescription || hasPhoto || hasOptions || hasTip || !!insights;
+    var actions = el("div", { class: "card-actions" });
+    var hasActions = false;
 
     if (hasDetail) {
       var detailId = "detail-" + (++detailSeq);
@@ -279,13 +282,18 @@
         toggleText.textContent = isOpen ? "접기" : "상세 정보";
       });
 
-      card.appendChild(toggle);
+      actions.appendChild(toggle);
+      hasActions = true;
     }
 
     // 지도 링크 — 항상 표시 영역 (카드 하단)
     var mapLink = buildMapLink(ev);
     if (mapLink) {
-      card.appendChild(mapLink);
+      actions.appendChild(mapLink);
+      hasActions = true;
+    }
+    if (hasActions) {
+      card.appendChild(actions);
     }
 
     var wrap = el("div", { class: "event", "data-type": ev.type || "transport" }, [card]);

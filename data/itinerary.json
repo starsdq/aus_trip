@@ -1,7 +1,7 @@
 {
   "title": "오스트리아 & 사운드 오브 뮤직 10일 여행",
   "dateRange": "2027.09.03 (금) ~ 09.12 (일)",
-  "routeMapUrl": "https://www.google.com/maps/dir/?api=1&origin=Munich+International+Airport&destination=V%C3%A1clav+Havel+Airport+Prague&waypoints=Munich+Hbf%7CNeuschwanstein+Castle%7CSalzburg%7CSt.+Gilgen,+Austria%7CHallstatt,+Austria%7CVienna,+Austria%7CPrague,+Czechia&travelmode=driving",
+  "routeMapUrl": "https://maps.google.com/maps?saddr=Munich+International+Airport&daddr=Munich+Hbf+to:Neuschwanstein+Castle+to:Salzburg,+Austria+to:St.+Gilgen,+Austria+to:Hallstatt,+Austria+to:Vienna,+Austria+to:Prague,+Czechia+to:V%C3%A1clav+Havel+Airport+Prague&dirflg=d",
   "days": [
     {
       "dayNum": 1,
